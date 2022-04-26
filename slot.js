@@ -35,6 +35,12 @@ export default class Queue {
 			this.log(`${this.statString} release slot`)
 		}
 	}
+	/**
+	 * shortcut for reserve + do-stuff + release
+	 * @param {} f 
+	 * @param  {...any} p 
+	 * @returns 
+	 */
 	async execute(f, ...p) {
 		// this.log('execute', f, p);
 		await this.reserve(f.name + ' (' + p.join(', ') + ')');
